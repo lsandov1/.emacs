@@ -389,7 +389,6 @@
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 (global-set-key "\M-?" 'help-command)
-(global-set-key "\C-h" 'delete-backward-char)
 
 ;;
 (defun other-window-backward (&optional n)
@@ -616,3 +615,5 @@
  '(magit-section-highlight ((((type tty)) nil))))
 
 (global-linum-mode 1)
+
+(setq erc-log-channels-directory "~/.erc/logs/")
