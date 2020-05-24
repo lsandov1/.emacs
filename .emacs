@@ -1,4 +1,4 @@
-;; share from Victor Jaquez
+; share from Victor Jaquez
 
 ;; the modeline
 (line-number-mode t)                      ; show line numbers
@@ -6,7 +6,7 @@
 (size-indication-mode t)                  ; show file size (emacs 22+)
 (display-time-mode t)                     ; show time
 (menu-bar-mode -1)                        ; don't show the menu
-(tool-bar-mode -1)                        ; don't show the toolbar
+;; (tool-bar-mode -1)                        ; don't show the toolbar
 ;;(cua-mode t)                              ; enable the cua mode
 (transient-mark-mode t)                   ; make the current 'selection' visible
 (delete-selection-mode t)                 ; delete the selection area with a keypress
@@ -64,12 +64,12 @@
 ;; show-paren-mode
 ;; show a subtle blinking of the matching paren (the defaults are ugly)
 ;; http://www.emacswiki.org/cgi-bin/wiki/ShowParenMode
-(progn
-  (show-paren-mode t)
-  (setq show-paren-style 'expression)
-  (set-face-background 'show-paren-match-face "#444444")
-  (set-face-attribute 'show-paren-match-face nil
-    :weight 'normal :underline nil :overline nil :slant 'normal))
+;; (progn
+;;   (show-paren-mode t)
+;;   (setq show-paren-style 'expression)
+;;   (set-face-background 'show-paren-match-face "#444444")
+;;   (set-face-attribute 'show-paren-match-face nil
+;;     :weight 'normal :underline nil :overline nil :slant 'normal))
 
 ;; run devhelp and find a token
 (defun devhelp-word-at-point ()
@@ -110,7 +110,7 @@
     ido-save-directory-list-file nil ; no ido state saved
     ido-max-window-height 1))
 
-(when (require 'ido) (my-ido))
+;; (when (require 'ido) (my-ido))
 
 ;; backups  (emacs will write backups and number them)
 (setq make-backup-files t ; do make backups
@@ -483,13 +483,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(magit-diff-added ((((type tty)) (:foreground "green"))))
- '(magit-diff-added-highlight ((((type tty)) (:foreground "LimeGreen"))))
- '(magit-diff-context-highlight ((((type tty)) (:foreground "default"))))
- '(magit-diff-file-heading ((((type tty)) nil)))
- '(magit-diff-removed ((((type tty)) (:foreground "red"))))
- '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
- '(magit-section-highlight ((((type tty)) nil))))
+ )
 
 (setq ido-default-buffer-method 'selected-window)
 
@@ -505,9 +499,76 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-  '(package-selected-packages
-     (quote
-       (python-mode w3 ssh rust-mode magit jabber gnuplot-mode gnuplot cm-mode adoc-mode))))
+	'(ansi-color-faces-vector
+		 [default default default italic underline success warning error])
+	'(ansi-color-names-vector
+		 ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
+ '(compilation-message-face 'default)
+ '(compile-command "make -k")
+ '(cua-global-mark-cursor-color "#2aa198")
+ '(cua-normal-cursor-color "#657b83")
+ '(cua-overwrite-cursor-color "#b58900")
+ '(cua-read-only-cursor-color "#859900")
+	'(custom-safe-themes
+		 '("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "8b313e1793da427e90c034dbe74f3ad9092ac291846c0f855908c42a6bda1ff4" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "115d42fa02a5ce6a759e38b27304e833d57a48422c2408d5455f14450eb96554" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "5d3e0746023fc5e246eb3e0e48c1ccb5ce0387fc4273896c6cf02ee349c2eba8" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" default))
+ '(fci-rule-color "#383838")
+ '(highlight-changes-colors '("#d33682" "#6c71c4"))
+	'(highlight-symbol-colors
+		 (--map
+			 (solarized-color-blend it "#fdf6e3" 0.25)
+			 '("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2")))
+ '(highlight-symbol-foreground-color "#586e75")
+	'(highlight-tail-colors
+		 '(("#eee8d5" . 0)
+				("#B4C342" . 20)
+				("#69CABF" . 30)
+				("#69B7F0" . 50)
+				("#DEB542" . 60)
+				("#F2804F" . 70)
+				("#F771AC" . 85)
+				("#eee8d5" . 100)))
+	'(hl-bg-colors
+		 '("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342"))
+	'(hl-fg-colors
+		 '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
+ '(ivy-mode t)
+ '(magit-diff-use-overlays nil)
+	'(nrepl-message-colors
+		 '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
+	'(package-selected-packages
+		 '(epresent dockerfile-mode docker-compose-mode docker elf-mode flycheck-golangci-lint go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode))
+ '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
+ '(pos-tip-background-color "#eee8d5")
+ '(pos-tip-foreground-color "#586e75")
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(tab-width 2)
+ '(term-default-bg-color "#fdf6e3")
+ '(term-default-fg-color "#657b83")
+ '(vc-annotate-background "#2B2B2B")
+	'(vc-annotate-color-map
+		 '((20 . "#BC8383")
+				(40 . "#CC9393")
+				(60 . "#DFAF8F")
+				(80 . "#D0BF8F")
+				(100 . "#E0CF9F")
+				(120 . "#F0DFAF")
+				(140 . "#5F7F5F")
+				(160 . "#7F9F7F")
+				(180 . "#8FB28F")
+				(200 . "#9FC59F")
+				(220 . "#AFD8AF")
+				(240 . "#BFEBBF")
+				(260 . "#93E0E3")
+				(280 . "#6CA0A3")
+				(300 . "#7CB8BB")
+				(320 . "#8CD0D3")
+				(340 . "#94BFF3")
+				(360 . "#DC8CC3")))
+ '(vc-annotate-very-old-color "#DC8CC3")
+	'(weechat-color-list
+		 '(unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
 
 
 (setq tramp-default-method "ssh")
@@ -528,18 +589,8 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (magit python))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
 
 
 (setq ispell-program-name "/usr/bin/aspell")
@@ -602,18 +653,114 @@
 ;;; key-binding for magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+
 ;; better colors for patches
 ;; https://emacs.stackexchange.com/questions/16840/how-to-change-green-background-in-magit-running-in-xterm
-(custom-set-faces
- ;; other faces
- '(magit-diff-added ((((type tty)) (:foreground "green"))))
- '(magit-diff-added-highlight ((((type tty)) (:foreground "LimeGreen"))))
- '(magit-diff-context-highlight ((((type tty)) (:foreground "default"))))
- '(magit-diff-file-heading ((((type tty)) nil)))
- '(magit-diff-removed ((((type tty)) (:foreground "red"))))
- '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
- '(magit-section-highlight ((((type tty)) nil))))
+
 
 (global-linum-mode 1)
 
+(defun gnutls-available-p ()
+    "Function redefined in order not to use built-in GnuTLS support"
+    nil)
+
+; we need to set this one, otherwise connection failed
+(setq tls-program '("gnutls-cli --no-ca-verification --x509cafile /etc/ssl/certs/ca-certificates.crt -p %p %h"))
+
+; M-x start-irc
+(defun start-irc ()
+  "Connect to IRC."
+  (interactive)
+  (erc-tls :server "otcirc.ostc.intel.com" :port 6697
+       :nick "leo" :full-name "Leonardo Sandoval")
+  (setq erc-autojoin-channels-alist '(("otcirc.jf.intel.com" "#clearlinux" "#pnp"))))
+
+
 (setq erc-log-channels-directory "~/.erc/logs/")
+
+;; gnus related stuff
+
+;; (setq
+;;   user-email-address "leonardo.sandoval.gonzalez@linux.intel.com"
+;;   user-full-name "Leonardo Sandoval Gonzalez")
+
+
+;; (setq
+;;   mail-sources '((imap
+;; 		   :server "linux.intel.com"
+;; 		   :port 993
+;; 		   :user "leonardo.sandoval.gonzalez")))
+
+;; (setq
+;;   send-mail-function	'smtpmail-send-it
+;;   message-send-mail-function	'smtpmail-send-it
+;;   smtpmail-smtp-server		"fm-out.intel.com")
+
+
+(require 'eshell)
+(require 'em-smart)
+(setq eshell-where-to-jump 'begin)
+(setq eshell-review-quick-commands nil)
+(setq eshell-smart-space-goes-to-end t)
+
+
+;; tramp stuff. taken from masterting emacs
+(setq tramp-default-method "ssh")
+
+(defun sudo ()
+  "Use TRAMP to `sudo' the current buffer"
+  (interactive)
+  (when buffer-file-name
+    (find-alternate-file
+      (concat "/sudo:root@localhost:"
+	buffer-file-name))))
+
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+
+(setq smtpmail-local-domain "intel.com")
+(setq user-mail-address (concat "leonardo.sandoval.gonzalez@" smtpmail-local-domain))
+;; (send-mail-function (quote sendmail-send-it))
+
+
+(windmove-default-keybindings)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; dired                                                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq dired-listing-switches "-alh")
+
+;; themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+;; https://github.com/NicolasPetton/zerodark-theme
+;; (load-theme 'zerodark t)
+(load-theme 'zenburn t)
+;; Optionally setup the modeline
+
+(zerodark-setup-modeline-format)
+
+;;(define-key global-map "\C-\M-<left>" 'other-frame)
+;;(global-set-key "\C-\M-left") 'other-frame)
+;; (global-set-key (kbd "C-M-<right>") 'other-frame)
+
+(put 'erase-buffer 'disabled nil)
+
+;; provided by Icarus
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+
+(setq grep-highlight-matches t)
+
+(require 'helm-config)
+
+;; provided by Icarus
+(global-set-key (kbd "M-i") 'imenu)
+
+;; easy way to find-grep and find-dired
+(global-set-key (kbd "M-s g") 'find-grep)
+(global-set-key (kbd "M-s d") 'find-dired)
+
+(setq default-frame-alist '((font . "Source Code Pro-10")))
+
+
+;; markdown files
+(add-to-list 'auto-mode-alist '(".md" . markdown-mode))
