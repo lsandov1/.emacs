@@ -538,7 +538,7 @@
 	'(nrepl-message-colors
 		 '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
 	'(package-selected-packages
-		 '(epresent dockerfile-mode docker-compose-mode docker elf-mode flycheck-golangci-lint go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode))
+		 '(epresent dockerfile-mode docker-compose-mode docker elf-mode  go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
@@ -759,8 +759,12 @@
 (global-set-key (kbd "M-s g") 'find-grep)
 (global-set-key (kbd "M-s d") 'find-dired)
 
-(setq default-frame-alist '((font . "Source Code Pro-10")))
-
-
 ;; markdown files
 (add-to-list 'auto-mode-alist '(".md" . markdown-mode))
+
+
+
+;;use larger font
+;; (setq default-frame-alist '((font . "Source Code Pro-10")))
+;; (setq default-frame-alist '((font . "Source Code Pro-18")))
+(set-face-attribute 'default (selected-frame) :height 200)
