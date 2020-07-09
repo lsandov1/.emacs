@@ -57,9 +57,9 @@
         (convert-standard-filename buffer-file-name)))
     (buffer-name)))
 
-(setq
-  frame-title-format '(:eval (my-title-format))
-  icon-title-format  '(:eval (concat "emacs: " (my-title-format))))
+;; (setq
+;;   frame-title-format '(:eval (my-title-format))
+;;   icon-title-format  '(:eval (concat "emacs: " (my-title-format))))
 
 ;; show-paren-mode
 ;; show a subtle blinking of the matching paren (the defaults are ugly)
@@ -501,45 +501,51 @@
  ;; If there is more than one, they won't work right.
 	'(ansi-color-faces-vector
 		 [default default default italic underline success warning error])
-	'(ansi-color-names-vector
-		 ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
- '(compilation-message-face 'default)
+ '(compilation-message-face (quote default))
  '(compile-command "make -k")
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
 	'(custom-safe-themes
-		 '("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "8b313e1793da427e90c034dbe74f3ad9092ac291846c0f855908c42a6bda1ff4" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "115d42fa02a5ce6a759e38b27304e833d57a48422c2408d5455f14450eb96554" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "5d3e0746023fc5e246eb3e0e48c1ccb5ce0387fc4273896c6cf02ee349c2eba8" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" default))
+		 (quote
+			 ("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "8b313e1793da427e90c034dbe74f3ad9092ac291846c0f855908c42a6bda1ff4" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "115d42fa02a5ce6a759e38b27304e833d57a48422c2408d5455f14450eb96554" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "5d3e0746023fc5e246eb3e0e48c1ccb5ce0387fc4273896c6cf02ee349c2eba8" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" default)))
  '(fci-rule-color "#383838")
- '(highlight-changes-colors '("#d33682" "#6c71c4"))
+ '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
 	'(highlight-symbol-colors
 		 (--map
 			 (solarized-color-blend it "#fdf6e3" 0.25)
-			 '("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2")))
+			 (quote
+				 ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
  '(highlight-symbol-foreground-color "#586e75")
 	'(highlight-tail-colors
-		 '(("#eee8d5" . 0)
-				("#B4C342" . 20)
-				("#69CABF" . 30)
-				("#69B7F0" . 50)
-				("#DEB542" . 60)
-				("#F2804F" . 70)
-				("#F771AC" . 85)
-				("#eee8d5" . 100)))
+		 (quote
+			 (("#eee8d5" . 0)
+				 ("#B4C342" . 20)
+				 ("#69CABF" . 30)
+				 ("#69B7F0" . 50)
+				 ("#DEB542" . 60)
+				 ("#F2804F" . 70)
+				 ("#F771AC" . 85)
+				 ("#eee8d5" . 100))))
 	'(hl-bg-colors
-		 '("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342"))
+		 (quote
+			 ("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342")))
 	'(hl-fg-colors
-		 '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
+		 (quote
+			 ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(ivy-mode t)
  '(magit-diff-use-overlays nil)
 	'(nrepl-message-colors
-		 '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
+		 (quote
+			 ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(org-agenda-files (quote ("~/tmp/sample.org")))
 	'(package-selected-packages
-		 '(epresent dockerfile-mode docker-compose-mode docker elf-mode  go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode))
- '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
+		 (quote
+			 (j-mode toc-org counsel-gtags counsel geiser paredit wsd-mode epresent dockerfile-mode docker-compose-mode docker elf-mode go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
@@ -548,27 +554,29 @@
  '(term-default-fg-color "#657b83")
  '(vc-annotate-background "#2B2B2B")
 	'(vc-annotate-color-map
-		 '((20 . "#BC8383")
-				(40 . "#CC9393")
-				(60 . "#DFAF8F")
-				(80 . "#D0BF8F")
-				(100 . "#E0CF9F")
-				(120 . "#F0DFAF")
-				(140 . "#5F7F5F")
-				(160 . "#7F9F7F")
-				(180 . "#8FB28F")
-				(200 . "#9FC59F")
-				(220 . "#AFD8AF")
-				(240 . "#BFEBBF")
-				(260 . "#93E0E3")
-				(280 . "#6CA0A3")
-				(300 . "#7CB8BB")
-				(320 . "#8CD0D3")
-				(340 . "#94BFF3")
-				(360 . "#DC8CC3")))
+		 (quote
+			 ((20 . "#BC8383")
+				 (40 . "#CC9393")
+				 (60 . "#DFAF8F")
+				 (80 . "#D0BF8F")
+				 (100 . "#E0CF9F")
+				 (120 . "#F0DFAF")
+				 (140 . "#5F7F5F")
+				 (160 . "#7F9F7F")
+				 (180 . "#8FB28F")
+				 (200 . "#9FC59F")
+				 (220 . "#AFD8AF")
+				 (240 . "#BFEBBF")
+				 (260 . "#93E0E3")
+				 (280 . "#6CA0A3")
+				 (300 . "#7CB8BB")
+				 (320 . "#8CD0D3")
+				 (340 . "#94BFF3")
+				 (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3")
 	'(weechat-color-list
-		 '(unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
+		 (quote
+			 (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
 
 
 (setq tramp-default-method "ssh")
@@ -668,12 +676,19 @@
 (setq tls-program '("gnutls-cli --no-ca-verification --x509cafile /etc/ssl/certs/ca-certificates.crt -p %p %h"))
 
 ; M-x start-irc
+;; (defun start-irc ()
+;;   "Connect to IRC."
+;;   (interactive)
+;;   (erc-tls :server "otcirc.ostc.intel.com" :port 6697
+;;        :nick "leo" :full-name "Leonardo Sandoval")
+;;   (setq erc-autojoin-channels-alist '(("otcirc.jf.intel.com" "#clearlinux" "#pnp"))))
+
 (defun start-irc ()
   "Connect to IRC."
   (interactive)
-  (erc-tls :server "otcirc.ostc.intel.com" :port 6697
-       :nick "leo" :full-name "Leonardo Sandoval")
-  (setq erc-autojoin-channels-alist '(("otcirc.jf.intel.com" "#clearlinux" "#pnp"))))
+  (erc :server "irc.freenode.net")
+  (setq erc-autojoin-channels-alist '(("irc.freenode.net" "#linaro-lava"))))
+
 
 
 (setq erc-log-channels-directory "~/.erc/logs/")
@@ -763,8 +778,62 @@
 (add-to-list 'auto-mode-alist '(".md" . markdown-mode))
 
 
+(add-to-list 'load-path "~/.emacs.d/frame-fns/")
+(load "frame-fns")
 
-;;use larger font
-;; (setq default-frame-alist '((font . "Source Code Pro-10")))
-;; (setq default-frame-alist '((font . "Source Code Pro-18")))
-(set-face-attribute 'default (selected-frame) :height 200)
+(add-to-list 'load-path "~/.emacs.d/frame-cmds/")
+(load "frame-cmds")
+
+(add-to-list 'load-path "~/.emacs.d/zoom/")
+(load "zoom-frm")
+
+(define-key ctl-x-map [(control ?+)] 'zoom-in/out)
+(define-key ctl-x-map [(control ?-)] 'zoom-in/out)
+(define-key ctl-x-map [(control ?=)] 'zoom-in/out)
+
+;; workaround. we need to eval-buffer/region each time a frame is opened
+
+
+;; markdown mode stuff
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+
+;; (set-face-attribute 'default (selected-frame) :height 200)
+
+;; J mode
+;; (add-to-list 'load-path "~/.emacs.d/j-mode/")
+;; (load "j-mode")
+;; (autoload 'j-mode "j-mode.el"  "Major mode for J." t)
+;; (autoload 'j-shell "j-mode.el" "Run J from emacs." t)
+;; (setq auto-mode-alist
+;; 	(cons '("\\.ij[rstp]" . j-mode) auto-mode-alist))
+;; (setq j-path "/home/lsandov1/j901-user")
+
+;; Add this to your emacs config
+(add-to-list 'load-path "/home/lsandov1/repos/J/j-mode/")
+(autoload 'j-mode "j-mode.el" "Major mode for editing J files" t)
+;; Add for detection of j source files if the auto-load fails
+(add-to-list 'auto-mode-alist '("\\.ij[rstp]$" . j-mode))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((J . t)))
+
+;; org activation
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;; (setq org-todo-keywords'((sequence "TODO" "WIP" "UNDER-REVIEW" "BLOCK" "|" "DONE" "DELEGATED")))
+
+(setq org-log-done 'time)
+;; (setq org-log-done 'note)
+;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+
+;Clear the eshell buffer.
+(defun eshell/clear ()      
+   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
