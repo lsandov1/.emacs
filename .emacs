@@ -34,3 +34,12 @@
 ;; easy way to find-grep and find-dired
 (global-set-key (kbd "M-s g") 'find-grep)
 (global-set-key (kbd "M-s d") 'find-dired)
+
+(ivy-mode t)
+
+(defun server-shutdown ()
+  "Save buffers, Quit, and Shutdown (kill) server"
+  (interactive)
+  (save-some-buffers)
+  (kill-emacs))
+
