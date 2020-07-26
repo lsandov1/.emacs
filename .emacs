@@ -504,14 +504,14 @@
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))
- '(compile-command "make -k")
+ '(compile-command "make")
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
 	'(custom-safe-themes
 		 (quote
-			 ("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "8b313e1793da427e90c034dbe74f3ad9092ac291846c0f855908c42a6bda1ff4" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "115d42fa02a5ce6a759e38b27304e833d57a48422c2408d5455f14450eb96554" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "5d3e0746023fc5e246eb3e0e48c1ccb5ce0387fc4273896c6cf02ee349c2eba8" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" default)))
+			 ("6b2c6e5bc1e89cf7d927d17f436626eac98a04fdab89e080f4e193f6d291c93d" "51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "8b313e1793da427e90c034dbe74f3ad9092ac291846c0f855908c42a6bda1ff4" "d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "115d42fa02a5ce6a759e38b27304e833d57a48422c2408d5455f14450eb96554" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "5d3e0746023fc5e246eb3e0e48c1ccb5ce0387fc4273896c6cf02ee349c2eba8" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "bce3ae31774e626dce97ed6d7781b4c147c990e48a35baedf67e185ebc544a56" default)))
  '(fci-rule-color "#383838")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
 	'(highlight-symbol-colors
@@ -537,14 +537,17 @@
 		 (quote
 			 ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(ivy-mode t)
+ '(magit-commit-arguments (quote ("--signoff")))
  '(magit-diff-use-overlays nil)
 	'(nrepl-message-colors
 		 (quote
 			 ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(org-agenda-files (quote ("~/tmp/sample.org")))
+	'(org-agenda-files
+		 (quote
+			 ("~/repos/org-tf-open-ci/tf-open-ci.org" "~/tmp/sample.org")))
 	'(package-selected-packages
 		 (quote
-			 (j-mode toc-org counsel-gtags counsel geiser paredit wsd-mode epresent dockerfile-mode docker-compose-mode docker elf-mode go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode)))
+			 (org-babel-eval-in-repl sh j-mode toc-org counsel-gtags counsel geiser paredit wsd-mode epresent dockerfile-mode docker-compose-mode docker elf-mode go go-mode helm soft-charcoal-theme iodine-theme blackboard-theme gnuplot grandshell-theme solarized-theme gist ivy markdown-mode+ python-mode zweilight-theme zerodark-theme zenburn-theme php-mode markdown-mode lua-mode gnuplot-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
@@ -823,6 +826,11 @@
  'org-babel-load-languages
  '((J . t)))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)))
+
+
 ;; org activation
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -837,3 +845,23 @@
 ;Clear the eshell buffer.
 (defun eshell/clear ()      
    (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
+
+
+(defun checkpatch()
+  (interactive)
+  (compile (concat "checkpatch.pl --emacs " (buffer-file-name))))
+
+
+
+;; (setq split-width-threshold nil)
+
+;; (global-set-key (kbd "C-o")
+;;                 (lambda ()
+;;                   (interactive)
+;;                   (let ((display-buffer-overriding-action ;; force window
+;;                          '((display-buffer-reuse-window 
+;;                             display-buffer-same-window)
+;;                            (inhibit-same-window . nil))))
+;;                     (split-window-horizontally) ;; split window
+;;                     (other-window 1) ;; change it
+;;                     (list-buffers))))
