@@ -32,7 +32,7 @@
 
 (global-set-key "\C-z" 'scroll-n-lines-ahead)
 (global-set-key "\C-q" 'scroll-n-lines-behind)
-(global-set-key "\C-x\C-q" 'quote-insert) ;; moves key binding C-q to C-x C-q
+(global-set-key "\C-x\C-q" 'read-only-mode) ;; moves key binding C-q to C-x C-q
 
 ;; chapter 02 - otehr cursor and text motion commands
 (defun point-to-top ()

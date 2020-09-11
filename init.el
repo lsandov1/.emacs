@@ -1,5 +1,5 @@
 ;; TODO: simple loop for loading
-(add-to-list 'load-path "~/repos/.emacs")
+(add-to-list 'load-path "~/repos/personal/.emacs")
 (load "./local-packages.el")
 (load "./local-book-gnu-emacs-extensions.el")
 (load "./local-irc.el")
@@ -10,12 +10,15 @@
 (load "./local-zoom-frm.el")
 (load "./local-backups.el")
 (load "./local-eshell.el")
+(load "./local-makefile.el")
+
+;; (load "./local-gerrit.el")
 
 ;; TODO: place the below commands under their respective emacs-lisp file
 (global-linum-mode 1)
-(setq x-select-enable-clipboard t)        ; copy-paste should work ...
+(setq select-enable-clipboard t)        ; copy-paste should work ...
 
-(defun server-shutdown ()
+(defun save-kill-emacs ()
   "Save buffers, Quit, and Shutdown (kill) server"
   (interactive)
   (save-some-buffers)
@@ -33,13 +36,46 @@
 
 ;; easy way to find-grep and find-dired
 (global-set-key (kbd "M-s g") 'find-grep)
-(global-set-key (kbd "M-s d") 'find-dired)
+(global-set-key (kbd "M-s d") 'find-name-dired)
 
 (ivy-mode t)
 
-(defun server-shutdown ()
-  "Save buffers, Quit, and Shutdown (kill) server"
-  (interactive)
-  (save-some-buffers)
-  (kill-emacs))
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
+
+(line-number-mode t)                      ; show line numbers
+(column-number-mode t)                    ; show column numbers
+(size-indication-mode t)                  ; show file size (emacs 22+)
+(display-time-mode t)                     ; show time
+(menu-bar-mode -1)                        ; don't show the menu
+
+
+(add-hook 'dired-load-hook (function (lambda () (load "dired-x"))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/repos/linaro/tasks/tf.org")))
+ '(package-selected-packages
+   (quote
+    (lua-mode auto-org-md gerrit gerrit-download tea-time tomatinho zerodark-theme zenburn-theme yaml-mode wsd-mode python-mode paredit markdown-mode magit helm groovy-mode geiser flycheck dockerfile-mode docker counsel-gtags))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; (require 'tea-time)
+
+;; (add-hook 'tea-time-notification-hook
+;;   (lambda ()
+;;     (notifications-notify :title "Time is up!"
+;;                           :body "I know you're busy, but it's TEA TIME!!"
+;;                           :app-name "Tea Time"
+;;                           :sound-name "alarm-clock-elapsed")))
+
+
+(global-eldoc-mode -1)
+(put 'downcase-region 'disabled nil)
