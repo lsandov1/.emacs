@@ -59,7 +59,7 @@
  '(org-agenda-files (quote ("~/repos/linaro/tasks/tf.org")))
  '(package-selected-packages
    (quote
-    (lua-mode auto-org-md gerrit gerrit-download tea-time tomatinho zerodark-theme zenburn-theme yaml-mode wsd-mode python-mode paredit markdown-mode magit helm groovy-mode geiser flycheck dockerfile-mode docker counsel-gtags))))
+    (julia-mode julia-repl julia-shell lua-mode auto-org-md gerrit gerrit-download tea-time tomatinho zerodark-theme zenburn-theme yaml-mode wsd-mode python-mode paredit markdown-mode magit helm groovy-mode geiser flycheck dockerfile-mode docker counsel-gtags))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -79,3 +79,10 @@
 
 (global-eldoc-mode -1)
 (put 'downcase-region 'disabled nil)
+
+;; enable flyspell-mode in all buffers
+
+(flyspell-mode t)
+
+
+(setq-default ediff-forward-word-function 'forward-char)
